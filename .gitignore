@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Assets
+assets/ads/*
+!assets/ads/dontdeleteme
+assets/screenshots/*
+!assets/screenshots/dontdeleteme

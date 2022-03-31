@@ -1,0 +1,18 @@
+version: "2"
+services:
+  scrappin:
+    build:
+      context: .
+    entrypoint: ./entrypoint.sh
+    working_dir: /home/pin/app
+    shm_size: 2g
+    stdin_open: true
+    tty: true
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - .:/home/pin/app
+
+    environment:
+      - DISPLAY=$DISPLAY
+      - TERM=xterm-256color
+    container_name: pin_worker
