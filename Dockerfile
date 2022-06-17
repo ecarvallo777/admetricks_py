@@ -39,7 +39,7 @@ RUN mkdir /home/pin/.local/ && \
 
 WORKDIR /home/pin/app
 
-COPY pyproject.toml poetry.lock ./
+COPY pyproject.toml poetry.lock run.py ./
 COPY deps/geckodriver /home/pin/.local/bin/geckodriver
 
 RUN pip install -U pip && \
