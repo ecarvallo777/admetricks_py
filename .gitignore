@@ -133,3 +133,4 @@ assets/ads/*
 !assets/ads/dontdeleteme
 assets/screenshots/*
 !assets/screenshots/dontdeleteme
+deps/geckodriver.exe
