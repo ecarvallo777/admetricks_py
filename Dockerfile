@@ -41,8 +41,8 @@ RUN mkdir /home/pin/.local/ && \
      mkdir /home/pin/app/assets/screenshots/
 
 WORKDIR /home/pin/app
-
-COPY pyproject.toml poetry.lock songs.py ./
+# Add songs.py stories.py
+COPY pyproject.toml poetry.lock songs.py stories.py ./
 COPY deps/geckodriver /home/pin/.local/bin/geckodriver
 
 RUN pip install -U pip && \

@@ -7,7 +7,7 @@ import pandas as pd
 # Config Selenium Options.
 options = FirefoxOptions()
 options.headless = True
-service = Service(executable_path="/home/pin/.local/bin/geckodriver") ### DOCKER PATH
+service = Service(executable_path="/home/pin/.local/bin/geckodriver", log_path="/dev/null") ### DOCKER PATH
 #service = Service(executable_path="./deps/geckodriver.exe") ### WINDOWS PATH
 driver = webdriver.Firefox(options=options, service=service)
 # Go to instructions URL.
