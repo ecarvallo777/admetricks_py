@@ -35,14 +35,19 @@ ENV PATH="${PATH}:/home/pin/.local/bin"
 
 RUN mkdir /home/pin/.local/ && \
      mkdir /home/pin/.local/bin && \
-     mkdir /home/pin/app
+     mkdir /home/pin/app/ && \
+     mkdir /home/pin/app/assets/ && \
+     mkdir /home/pin/app/assets/ads/ && \
+     mkdir /home/pin/app/assets/screenshots/
 
 WORKDIR /home/pin/app
 
-COPY pyproject.toml poetry.lock run.py ./
+COPY pyproject.toml poetry.lock songs.py ./
 COPY deps/geckodriver /home/pin/.local/bin/geckodriver
 
 RUN pip install -U pip && \
+     # add pandas
+     pip install pandas \ 
      pip install poetry==1.1.13 && \
      poetry config virtualenvs.create false && \
      poetry install --no-root
