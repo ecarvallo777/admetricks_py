@@ -29,10 +29,13 @@ driver.get(src)
 stories_data = driver.find_elements(by=By.CSS_SELECTOR, value='.slick-track a')
 stories = []
 for story in stories_data:
+    href = story.get_attribute('href')
+    description = story.find_element(by=By.CSS_SELECTOR, value='img').get_attribute('alt')
+    filename = filenameEncrypted(story.find_element(by=By.CSS_SELECTOR, value='img').get_attribute('src'))
     story_dict = {
-        'href' : story.get_attribute('href'),
-        'description' : story.find_element(by=By.CSS_SELECTOR, value='img').get_attribute('alt'),
-        'filename' : filenameEncrypted(story.find_element(by=By.CSS_SELECTOR, value='img').get_attribute('src')),
+        'href' : href,
+        'description' : description,
+        'filename' : filename,
     }
     stories.append(story_dict)
     # Take SS to div content.
