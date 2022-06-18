@@ -38,7 +38,7 @@ The same situation with the lyrics of the songs. The extracting process append e
     });
     """)
     
-In the second challenge (**stories.py**) the DOM content (of instructions url) **never** loaded the elements that contain the data requested. The **capture process** need to visit the iframe's href to get the elements that contain the stories data.
+In the second challenge (**stories.py**) the DOM content (of instructions url) **never** loaded the elements that contain the data requested. The **capturing process** need to visit the iframe's href to get the elements that contain the stories data.
 
 So, when the DOM content was loaded. Its get the iFrame HREF.
 
