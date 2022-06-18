@@ -35,7 +35,7 @@ for story in stories_data:
     story_dict = {
         'href' : href,
         'description' : description,
-        'filename' : filename,
+        'filename' : filename
     }
     stories.append(story_dict)
     # Take SS to div content.
