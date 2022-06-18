@@ -8,22 +8,22 @@ content of the **instructions url's** and then, **get elements with the data req
 
 Finally, **export data and take screenshots.**
 
-In the first challenge (**songs.py**) I found messy data, i.e. raw data obtained from the web, so my implementation is based on an extracting process. It gets elements with the data requested (song and author) following this example order::
+In the first challenge (**songs.py**) I found messy data, i.e. raw data obtained from the web, so my implementation is based on an extracting process. It gets elements with the data requested (song and author) following this example order:
 
     Song_data: 'This is a song for Miss Hedy Lamarr\nJeffBeck, Johnny Depp'
 
-So, to access to author and song data:
+Then, the process access to author and song data by this way:
 
     data_sorted = song_data.split("\n")
     author = data_sorted[0]
     song = data_sorted[1]
 
-The same situation with the lyrics of the songs. I need to append each paragraph of the lyrics song in a string.
+The same situation with the lyrics of the songs. The extracting process append each paragraph of the lyrics song in a string.
 
     for paragraph in lyrics_data:
         lyrics = lyrics + (paragraph.text).replace("<br>", "").replace("\n"," ").replace(".",". ")
  
- To take a **clean screenshot** I need to remove junk content. So, I selected ads, menu and others junk elements and I removed this with **javascript executor.**
+ To take a **clean screenshot**  the extracting process remove trash content. So, it selected ads, menu and others junk elements. (Removed with **javascript executor.** )
     
     driver.execute_script("""
     var ads = document.querySelectorAll(".bnn");
@@ -35,16 +35,17 @@ The same situation with the lyrics of the songs. I need to append each paragraph
     });
     """)
     
-In the second challenge (**stories.py**) the DOM content (of instructions url) **never** loaded the elements that contain the data requested. So we need to visit the iframe's href to get the elements that contain the stories data.
+In the second challenge (**stories.py**) the DOM content (of instructions url) **never** loaded the elements that contain the data requested. The scrapping algorithms need to visit the iframe's href to get the elements that contain the stories data.
 
-So, when the DOM content was loaded. I get the iFrame HREF.
+So, when the DOM content was loaded. Its get the iFrame HREF.
 
     # Go iFrame URL.
     src = driver.find_element(by=By.CSS_SELECTOR, value='.mat-mix-anchor').get_attribute('src')
     driver.get(src)
 
-To convert the img src into MD5, I used **hashlib library.**<br>
-To export data to CSV, I used **pandas library.**
+**Hashlib library:** To convert the img src into MD5<br>
+**Pandas library:** To export data to CSV.
+
 # Base project modifications:
 ***
 In **DOCKERFILE:**
