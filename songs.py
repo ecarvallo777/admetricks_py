@@ -26,6 +26,13 @@ for link in links_lyrics:
     lyrics=''
     for paragraph in lyrics_data:
         lyrics = lyrics + (paragraph.text).replace("<br>", "").replace("\n"," ").replace(".",". ")
+    # Save songs data.
+    song_dict = {
+        'song': data_sorted[0],
+        'author':data_sorted[1],
+        'lyrics':lyrics
+    }
+    songs.append(song_dict)
     # Delete trash content with JavaScript Executor.
     driver.execute_script("""
     var ads = document.querySelectorAll(".bnn");
@@ -46,13 +53,6 @@ for link in links_lyrics:
     # Take ss (/home/pin/app/assets/screenshots/data_sorted[0].png).
     driver.find_element(by=By.ID, value='letra').screenshot('/home/pin/app/assets/screenshots/'+data_sorted[0]+'.png') ### DOCKER PATH
     #driver.find_element(by=By.ID, value='letra').screenshot('assets/screenshots/'+data_sorted[0]+'.png') ### WINDOWS PATH
-    # Save songs data.
-    song_dict = {
-        'song': data_sorted[0],
-        'author':data_sorted[1],
-        'lyrics':lyrics
-    }
-    songs.append(song_dict)
 # Export songs[] to CSV (songs.csv)
 df = pd.DataFrame(songs)
 df.to_csv('/home/pin/app/assets/songs.csv', index=False) ### DOCKER PATH
