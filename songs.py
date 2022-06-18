@@ -44,8 +44,8 @@ for link in links_lyrics:
     trasher((document.querySelector("article .letra #letra div div img")));
     """)
     # Take ss (/home/pin/app/assets/screenshots/data_sorted[0].png).
-    ss_data = driver.find_element(by=By.ID, value='letra').screenshot('/home/pin/app/assets/screenshots/'+data_sorted[0]+'.png') ### DOCKER PATH
-    #ss_data = driver.find_element(by=By.ID, value='letra').screenshot('assets/screenshots/'+data_sorted[0]+'.png') ### WINDOWS PATH
+    driver.find_element(by=By.ID, value='letra').screenshot('/home/pin/app/assets/screenshots/'+data_sorted[0]+'.png') ### DOCKER PATH
+    #driver.find_element(by=By.ID, value='letra').screenshot('assets/screenshots/'+data_sorted[0]+'.png') ### WINDOWS PATH
     # Save songs data.
     song_dict = {
         'song': data_sorted[0],
