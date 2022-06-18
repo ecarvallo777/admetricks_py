@@ -18,7 +18,7 @@ So, to access to author and song data:
     author = data_sorted[0]
     song = data_sorted[1]
 
-The same situation with the lyrics. I need to append each paragraph of the lyrics song in a string.
+The same situation with the lyrics of the songs. I need to append each paragraph of the lyrics song in a string.
 
     for paragraph in lyrics_data:
         lyrics = lyrics + (paragraph.text).replace("<br>", "").replace("\n"," ").replace(".",". ")
@@ -45,7 +45,7 @@ So, when the DOM content was loaded. I get the iFrame HREF.
 
 To convert the img src into MD5, I used **hashlib library.**<br>
 To export data to CSV, I used **pandas library.**
-# Base project modifications
+# Base project modifications:
 ***
 In **DOCKERFILE:**
 
