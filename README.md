@@ -26,10 +26,10 @@ The same situation with the lyrics of the songs. The extracting process append e
     for paragraph in lyrics_data:
         lyrics = lyrics + (paragraph.text).replace("<br>", "").replace("\n"," ").replace(".",". ")
  
- To take a **clean screenshot**  the extracting process remove trash content. So, it select ads, menu and others junk elements. (Removed with **javascript executor.** )
+ To take a **clean screenshot**  the extracting process remove trash content. So, it select ads, menu and others junk elements. Removed with **javascript executor.**
     
     driver.execute_script("""
-    var ads = document.querySelectorAll(".bnn");
+    var ads = document.querySelectorAll(".bnn"); // Ads elements
     function trasher(element){
         element.parentNode.removeChild(element);
     }
