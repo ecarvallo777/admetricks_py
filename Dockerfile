@@ -36,13 +36,14 @@ ENV PATH="${PATH}:/home/pin/.local/bin"
 RUN mkdir /home/pin/.local/ && \
      mkdir /home/pin/.local/bin && \
      mkdir /home/pin/app/ && \
+     # Add assets dirs.
      mkdir /home/pin/app/assets/ && \
      mkdir /home/pin/app/assets/ads/ && \
      mkdir /home/pin/app/assets/screenshots/
 
 WORKDIR /home/pin/app
 # Add songs.py stories.py
-COPY pyproject.toml poetry.lock songs.py stories.py ./
+COPY pyproject.toml poetry.lock songs.py stories.py up ./
 COPY deps/geckodriver /home/pin/.local/bin/geckodriver
 
 RUN pip install -U pip && \
