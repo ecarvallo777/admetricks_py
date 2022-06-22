@@ -8,7 +8,6 @@ options = FirefoxOptions()
 options.headless = True
 service = Service(executable_path="/home/pin/.local/bin/geckodriver", log_path="/dev/null") ### DOCKER PATH
 driver = webdriver.Firefox(options=options, service=service)
-# Def to encrypt the img src.
 def filenameEncrypted(str):
     hash_object = hashlib.md5(str.encode())
     md5_hash = hash_object.hexdigest()
@@ -18,7 +17,6 @@ driver.get('https://as.com/diarioas/america.html')
 # Because, the DOM content loaded never showed the selectors of the elements that
 # Contain the data requestd.
 #
-# Go iFrame URL.
 src = driver.find_element(by=By.CSS_SELECTOR, value='.mat-mix-anchor').get_attribute('src')
 driver.get(src)
 stories_data = driver.find_elements(by=By.CSS_SELECTOR, value='.slick-track a')
